@@ -20,8 +20,6 @@ export default defineConfig({
     drop: ['console', 'debugger'],
   },
   build: {
-    target: 'esnext',
-    minify: 'esbuild',
     cssCodeSplit: true,
     chunkSizeWarningLimit: 2000,
     rollupOptions: {
@@ -30,9 +28,6 @@ export default defineConfig({
           if (id.includes('node_modules')) {
             if (id.includes('antd') || id.includes('@ant-design')) {
               return 'vendor_antd';
-            }
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
-              return 'vendor_react';
             }
             if (id.includes('chart.js') || id.includes('react-chartjs-2')) {
               return 'vendor_chart';
