@@ -15,4 +15,34 @@ export default defineConfig({
       "@components": path.resolve("./src/components"),
     },
   },
+  esbuild: {
+    drop: ['console', 'debugger'],
+  },
+  build: {
+    target: 'esnext',
+    minify: 'esbuild',
+    cssCodeSplit: true,
+    chunkSizeWarningLimit: 2000,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('antd') || id.includes('@ant-design')) {
+              return 'vendor_antd';
+            }
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+              return 'vendor_react';
+            }
+            if (id.includes('chart.js') || id.includes('react-chartjs-2')) {
+              return 'vendor_chart';
+            }
+            return 'vendor';
+          }
+        }
+      }
+    }
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom', 'antd', 'chart.js', '@ant-design/charts'],
+  }
 });
