@@ -3,7 +3,8 @@ import { Suspense, useContext, useEffect } from "react";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
 // Antd for Config
-import { Spin, ConfigProvider } from "antd";
+import { ConfigProvider } from "antd";
+import GlobalLoader from "./components/GlobalLoader";
 // ThemeProvider Context
 import { ThemeContext } from "./contexts/ThemeProvider";
 // Styles
@@ -66,7 +67,7 @@ function App() {
             },
           }}
         >
-          <Suspense fallback={<Spin />}>
+          <Suspense fallback={<GlobalLoader />}>
             <RouterProvider router={router} />
           </Suspense>
         </ConfigProvider>
