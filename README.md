@@ -1,6 +1,6 @@
 # Annakoot Admin Dashboard
 
-![Annakoot Admin Dashboard Cover](https://via.placeholder.com/1200x400?text=Annakoot+Admin+Dashboard)
+![Annakoot-Admin-Dashboard Banner](./annakoot-cover.png)
 
 **Live Demo:** [https://annakoot.vercel.app](https://annakoot.vercel.app)
 
